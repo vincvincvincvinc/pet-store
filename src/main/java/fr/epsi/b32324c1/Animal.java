@@ -16,5 +16,8 @@ public class Animal {
     @ManyToOne
     @JoinColumn(name = "petstore_id")
     private PetStore petStore;
+
+    public void setPetStore(Object o) {
+    }
 }
 

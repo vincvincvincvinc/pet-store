@@ -1,0 +1,200 @@
+Index: src/main/java/fr/epsi/b32324c1/Animal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.epsi.b32324c1;\r\n\r\nimport javax.persistence.*;\r\nimport java.util.Date;\r\n\r\n@Entity\r\n@Inheritance(strategy = InheritanceType.JOINED)\r\npublic class Animal {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long id;\r\n    private Date birth;\r\n    private String couleur;\r\n\r\n\r\n    @ManyToOne\r\n    @JoinColumn(name = \"petstore_id\")\r\n    private PetStore petStore;\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Animal.java b/src/main/java/fr/epsi/b32324c1/Animal.java
+--- a/src/main/java/fr/epsi/b32324c1/Animal.java	(revision 272734bde7906ab4a49649874d48ec0e906363fe)
++++ b/src/main/java/fr/epsi/b32324c1/Animal.java	(date 1708620778530)
+@@ -12,7 +12,7 @@
+     private Date birth;
+     private String couleur;
+ 
+-
++    // mapping to pet store
+     @ManyToOne
+     @JoinColumn(name = "petstore_id")
+     private PetStore petStore;
+Index: src/main/java/fr/epsi/b32324c1/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.epsi.b32324c1;\r\n\r\nimport javax.persistence.EntityManagerFactory;\r\nimport javax.persistence.Persistence;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(\"default\");\r\n\r\n        entityManagerFactory.close();\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Main.java b/src/main/java/fr/epsi/b32324c1/Main.java
+--- a/src/main/java/fr/epsi/b32324c1/Main.java	(revision 272734bde7906ab4a49649874d48ec0e906363fe)
++++ b/src/main/java/fr/epsi/b32324c1/Main.java	(date 1708620778515)
+@@ -5,7 +5,7 @@
+ 
+ public class Main {
+     public static void main(String[] args) {
+-
++        // création du entity manager
+         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+ 
+         entityManagerFactory.close();
+Index: src/main/java/fr/epsi/b32324c1/PetStore.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.epsi.b32324c1;\r\n\r\nimport javax.persistence.*;\r\nimport java.util.List;\r\n\r\n@Entity\r\npublic class PetStore {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long id;\r\n    private String name;\r\n    private String managerName;\r\n\r\n\r\n    @ManyToMany\r\n    @JoinTable(\r\n            name = \"petstore_product\",\r\n            joinColumns = @JoinColumn(name = \"petstore_id\"),\r\n            inverseJoinColumns = @JoinColumn(name = \"product_id\")\r\n    )\r\n    private List<Product> products;\r\n\r\n    @OneToOne\r\n    @JoinColumn(name = \"address_id\")\r\n    private Address address;\r\n\r\n    @OneToMany(mappedBy = \"petStore\")\r\n    private List<Animal> animals;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/PetStore.java b/src/main/java/fr/epsi/b32324c1/PetStore.java
+--- a/src/main/java/fr/epsi/b32324c1/PetStore.java	(revision 272734bde7906ab4a49649874d48ec0e906363fe)
++++ b/src/main/java/fr/epsi/b32324c1/PetStore.java	(date 1708620778559)
+@@ -11,7 +11,7 @@
+     private String name;
+     private String managerName;
+ 
+-
++    // mappings avec tous les autres entités
+     @ManyToMany
+     @JoinTable(
+             name = "petstore_product",
+Index: src/main/java/fr/epsi/b32324c1/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.epsi.b32324c1;\r\n\r\nimport javax.persistence.*;\r\nimport java.util.List;\r\n\r\n@Entity\r\npublic class Product {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long id;\r\n    private String code;\r\n    private String label;\r\n    @Enumerated(EnumType.STRING)\r\n    private ProdType type;\r\n    private double price;\r\n\r\n\r\n    @ManyToMany(mappedBy = \"products\")\r\n    private List<PetStore> petStores;\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Product.java b/src/main/java/fr/epsi/b32324c1/Product.java
+--- a/src/main/java/fr/epsi/b32324c1/Product.java	(revision 272734bde7906ab4a49649874d48ec0e906363fe)
++++ b/src/main/java/fr/epsi/b32324c1/Product.java	(date 1708620778570)
+@@ -14,7 +14,7 @@
+     private ProdType type;
+     private double price;
+ 
+-
++    // mapping to pet store
+     @ManyToMany(mappedBy = "products")
+     private List<PetStore> petStores;
+ }
+Index: src/main/java/fr/epsi/b32324c1/Address.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.epsi.b32324c1;\r\n\r\nimport javax.persistence.*;\r\n\r\n@Entity\r\npublic class Address {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long id;\r\n    private String number;\r\n    private String street;\r\n    private String zipCode;\r\n    private String city;\r\n\r\n\r\n    @OneToOne(mappedBy = \"address\")\r\n    private PetStore petStore;\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Address.java b/src/main/java/fr/epsi/b32324c1/Address.java
+--- a/src/main/java/fr/epsi/b32324c1/Address.java	(revision 272734bde7906ab4a49649874d48ec0e906363fe)
++++ b/src/main/java/fr/epsi/b32324c1/Address.java	(date 1708620778542)
+@@ -12,7 +12,7 @@
+     private String zipCode;
+     private String city;
+ 
+-
++    // mapping to pet store
+     @OneToOne(mappedBy = "address")
+     private PetStore petStore;
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4c7f8d3d-1d24-43c0-a958-68f2769f21bd\" name=\"Changes\" comment=\"Add entity manager + fix persistence.xml\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Enum\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitToolBoxStore\">\r\n    <option name=\"projectConfigVersion\" value=\"5\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2cj4eYGwytfZrnhVqEzXwZ5OoCr\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"autoscrollToSource\" value=\"true\" />\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"openDirectoriesWithSingleClick\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\DevOps\\Documents\\GitHub\\pet-store-java\\src\\main\\resources\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"4c7f8d3d-1d24-43c0-a958-68f2769f21bd\" name=\"Changes\" comment=\"\" />\r\n      <created>1708611755230</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1708611755230</updated>\r\n      <workItem from=\"1708611756256\" duration=\"7053000\" />\r\n      <workItem from=\"1708618848864\" duration=\"680000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Initial commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708614176799</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708614176801</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Fix dependencies, fix maven, add enums\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708615849217</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708615849217</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Add correct mappings\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708617576406</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708617576406</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Add entity manager + fix persistence.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1708618667134</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1708618667134</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Initial commit\" />\r\n    <MESSAGE value=\"Fix dependencies, fix maven, add enums\" />\r\n    <MESSAGE value=\"Add correct mappings\" />\r\n    <MESSAGE value=\"Add entity manager + fix persistence.xml\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add entity manager + fix persistence.xml\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 272734bde7906ab4a49649874d48ec0e906363fe)
++++ b/.idea/workspace.xml	(date 1708620779007)
+@@ -4,10 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="4c7f8d3d-1d24-43c0-a958-68f2769f21bd" name="Changes" comment="Add entity manager + fix persistence.xml">
++    <list default="true" id="4c7f8d3d-1d24-43c0-a958-68f2769f21bd" name="Changes" comment="pom.xml update">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Address.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Animal.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/PetStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/PetStore.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Product.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -42,24 +45,25 @@
+     <option name="openDirectoriesWithSingleClick" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "git-widget-placeholder": "master",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "preferences.lookFeel",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\DevOps\Documents\GitHub\pet-store-java\src\main\resources" />
+@@ -74,7 +78,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1708611755230</updated>
+       <workItem from="1708611756256" duration="7053000" />
+-      <workItem from="1708618848864" duration="680000" />
++      <workItem from="1708618848864" duration="1925000" />
+     </task>
+     <task id="LOCAL-00001" summary="Initial commit">
+       <option name="closed" value="true" />
+@@ -108,7 +112,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1708618667134</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="pom.xml update">
++      <option name="closed" value="true" />
++      <created>1708619831065</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1708619831065</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -130,6 +142,7 @@
+     <MESSAGE value="Fix dependencies, fix maven, add enums" />
+     <MESSAGE value="Add correct mappings" />
+     <MESSAGE value="Add entity manager + fix persistence.xml" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Add entity manager + fix persistence.xml" />
++    <MESSAGE value="pom.xml update" />
++    <option name="LAST_COMMIT_MESSAGE" value="pom.xml update" />
+   </component>
+ </project>
+\ No newline at end of file

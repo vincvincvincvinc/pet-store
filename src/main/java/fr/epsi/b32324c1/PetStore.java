@@ -26,4 +26,26 @@ public class PetStore {
 
     @OneToMany(mappedBy = "petStore")
     private List<Animal> animals;
+
+    // Getter for animals
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    // Setter for animals
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
+    }
+
+    // Method to add an animal
+    public void addAnimal(Animal animal) {
+        animals.add(animal);
+        animal.setPetStore(this);
+    }
+
+    // Method to remove an animal
+    public void removeAnimal(Animal animal) {
+        animals.remove(animal);
+        animal.setPetStore(null);
+    }
 }
