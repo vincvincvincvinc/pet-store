@@ -12,6 +12,8 @@ public class Address {
     private String zipCode;
     private String city;
 
-    // Getters and setters
+
+    @OneToOne(mappedBy = "address")
+    private PetStore petStore;
 }
 

@@ -6,6 +6,6 @@ import javax.persistence.*;
 public class Cat extends Animal {
     private String chipId;
 
-    // Getters and setters
+
 }
 

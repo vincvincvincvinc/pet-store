@@ -1,6 +1,7 @@
 package fr.epsi.b32324c1;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -13,6 +14,8 @@ public class Product {
     private ProdType type;
     private double price;
 
-    // Getters and setters
+
+    @ManyToMany(mappedBy = "products")
+    private List<PetStore> petStores;
 }
 

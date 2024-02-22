@@ -1,0 +1,311 @@
+Index: .idea/git_toolbox_prj.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/git_toolbox_prj.xml b/.idea/git_toolbox_prj.xml
+new file mode 100644
+--- /dev/null	(date 1708614368971)
++++ b/.idea/git_toolbox_prj.xml	(date 1708614368971)
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GitToolBoxProjectSettings">
++    <option name="commitMessageIssueKeyValidationOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++    <option name="commitMessageValidationEnabledOverride">
++      <BoolValueOverride>
++        <option name="enabled" value="true" />
++      </BoolValueOverride>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/fr/epsi/b32324c1/Address.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Address.java b/src/main/java/fr/epsi/b32324c1/Address.java
+new file mode 100644
+--- /dev/null	(date 1708614686258)
++++ b/src/main/java/fr/epsi/b32324c1/Address.java	(date 1708614686258)
+@@ -0,0 +1,17 @@
++package fr.epsi.b32324c1;
++
++import javax.persistence.*;
++
++@Entity
++public class Address {
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++    private String number;
++    private String street;
++    private String zipCode;
++    private String city;
++
++    // Getters and setters
++}
++
+Index: src/main/java/fr/epsi/b32324c1/Product.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Product.java b/src/main/java/fr/epsi/b32324c1/Product.java
+new file mode 100644
+--- /dev/null	(date 1708614674748)
++++ b/src/main/java/fr/epsi/b32324c1/Product.java	(date 1708614674748)
+@@ -0,0 +1,18 @@
++package fr.epsi.b32324c1;
++
++import javax.persistence.*;
++
++@Entity
++public class Product {
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++    private String code;
++    private String label;
++    @Enumerated(EnumType.STRING)
++    private ProdType type;
++    private double price;
++
++    // Getters and setters
++}
++
+Index: src/main/java/fr/epsi/b32324c1/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.epsi.b32324c1;\r\n\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"Hello world!\");\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Main.java b/src/main/java/fr/epsi/b32324c1/Main.java
+--- a/src/main/java/fr/epsi/b32324c1/Main.java	(revision 7ad9d3dc58facef03cdfe936e8afa30823214c9f)
++++ b/src/main/java/fr/epsi/b32324c1/Main.java	(date 1708615102441)
+@@ -1,6 +1,5 @@
+ package fr.epsi.b32324c1;
+ 
+-
+ public class Main {
+     public static void main(String[] args) {
+         System.out.println("Hello world!");
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4c7f8d3d-1d24-43c0-a958-68f2769f21bd\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/PetStore.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitToolBoxStore\">\r\n    <option name=\"projectConfigVersion\" value=\"5\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 3\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2cj4eYGwytfZrnhVqEzXwZ5OoCr\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"autoscrollToSource\" value=\"true\" />\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"openDirectoriesWithSingleClick\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\DevOps\\Documents\\GitHub\\pet-store-java\\src\\main\\resources\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"4c7f8d3d-1d24-43c0-a958-68f2769f21bd\" name=\"Changes\" comment=\"\" />\r\n      <created>1708611755230</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1708611755230</updated>\r\n      <workItem from=\"1708611756256\" duration=\"2386000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 7ad9d3dc58facef03cdfe936e8afa30823214c9f)
++++ b/.idea/workspace.xml	(date 1708615630656)
+@@ -4,16 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="4c7f8d3d-1d24-43c0-a958-68f2769f21bd" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/PetStore.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
++    <list default="true" id="4c7f8d3d-1d24-43c0-a958-68f2769f21bd" name="Changes" comment="Initial commit">
++      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Address.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Animal.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Cat.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Fish.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Product.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/PetStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/PetStore.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -75,8 +76,17 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1708611755230</updated>
+-      <workItem from="1708611756256" duration="2386000" />
++      <workItem from="1708611756256" duration="3860000" />
++    </task>
++    <task id="LOCAL-00001" summary="Initial commit">
++      <option name="closed" value="true" />
++      <created>1708614176799</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1708614176801</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -93,4 +103,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Initial commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/fr/epsi/b32324c1/FishLivEnv.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/FishLivEnv.java b/src/main/java/fr/epsi/b32324c1/FishLivEnv.java
+new file mode 100644
+--- /dev/null	(date 1708615744758)
++++ b/src/main/java/fr/epsi/b32324c1/FishLivEnv.java	(date 1708615744758)
+@@ -0,0 +1,6 @@
++package fr.epsi.b32324c1;
++
++public enum FishLivEnv {
++    FRESH_WATER,
++    SEA_WATER
++}
+Index: src/main/java/fr/epsi/b32324c1/Cat.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Cat.java b/src/main/java/fr/epsi/b32324c1/Cat.java
+new file mode 100644
+--- /dev/null	(date 1708614948340)
++++ b/src/main/java/fr/epsi/b32324c1/Cat.java	(date 1708614948340)
+@@ -0,0 +1,11 @@
++package fr.epsi.b32324c1;
++
++import javax.persistence.*;
++
++@Entity
++public class Cat extends Animal {
++    private String chipId;
++
++    // Getters and setters
++}
++
+Index: src/main/java/fr/epsi/b32324c1/Fish.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Fish.java b/src/main/java/fr/epsi/b32324c1/Fish.java
+new file mode 100644
+--- /dev/null	(date 1708614907853)
++++ b/src/main/java/fr/epsi/b32324c1/Fish.java	(date 1708614907853)
+@@ -0,0 +1,11 @@
++package fr.epsi.b32324c1;
++
++import javax.persistence.*;
++
++@Entity
++public class Fish extends Animal {
++    @Enumerated(EnumType.STRING)
++    private FishLivEnv livingEnv;
++
++    // Getters and setters
++}
+Index: src/main/java/fr/epsi/b32324c1/PetStore.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.epsi.b32324c1;\r\n\r\nimport javax.persistence.*;\r\n\r\n@Entity\r\npublic class PetStore {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/PetStore.java b/src/main/java/fr/epsi/b32324c1/PetStore.java
+--- a/src/main/java/fr/epsi/b32324c1/PetStore.java	(revision 7ad9d3dc58facef03cdfe936e8afa30823214c9f)
++++ b/src/main/java/fr/epsi/b32324c1/PetStore.java	(date 1708614606998)
+@@ -6,5 +6,7 @@
+ public class PetStore {
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+-
++    private Long id;
++    private String name;
++    private String managerName;
+ }
+Index: src/main/java/fr/epsi/b32324c1/Animal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/Animal.java b/src/main/java/fr/epsi/b32324c1/Animal.java
+new file mode 100644
+--- /dev/null	(date 1708614836831)
++++ b/src/main/java/fr/epsi/b32324c1/Animal.java	(date 1708614836831)
+@@ -0,0 +1,17 @@
++package fr.epsi.b32324c1;
++
++import javax.persistence.*;
++import java.util.Date;
++
++@Entity
++@Inheritance(strategy = InheritanceType.JOINED)
++public class Animal {
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++    private Date birth;
++    private String couleur;
++
++    // Getters and setters
++}
++
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>fr.epsi.b32324c1</groupId>\r\n    <artifactId>pet-store-java</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>21</maven.compiler.source>\r\n        <maven.compiler.target>21</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.hibernate</groupId>\r\n            <artifactId>hibernate-core</artifactId>\r\n            <version>6.4.4.Final</version>\r\n            <type>pom</type>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->\r\n        <dependency>\r\n            <groupId>org.mariadb.jdbc</groupId>\r\n            <artifactId>mariadb-java-client</artifactId>\r\n            <version>3.3.3</version>\r\n        </dependency>\r\n    </dependencies>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 7ad9d3dc58facef03cdfe936e8afa30823214c9f)
++++ b/pom.xml	(date 1708615305492)
+@@ -26,6 +26,13 @@
+             <artifactId>mariadb-java-client</artifactId>
+             <version>3.3.3</version>
+         </dependency>
++        <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
++        <dependency>
++            <groupId>javax.persistence</groupId>
++            <artifactId>javax.persistence-api</artifactId>
++            <version>2.2</version>
++        </dependency>
++
+     </dependencies>
+ 
+ </project>
+\ No newline at end of file
+Index: src/main/java/fr/epsi/b32324c1/ProdType.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/epsi/b32324c1/ProdType.java b/src/main/java/fr/epsi/b32324c1/ProdType.java
+new file mode 100644
+--- /dev/null	(date 1708615744746)
++++ b/src/main/java/fr/epsi/b32324c1/ProdType.java	(date 1708615744746)
+@@ -0,0 +1,7 @@
++package fr.epsi.b32324c1;
++
++public enum ProdType {
++    FOOD,
++    ACCESSORY,
++    CLEANING
++}
