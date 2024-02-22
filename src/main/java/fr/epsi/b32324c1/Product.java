@@ -14,7 +14,7 @@ public class Product {
     private ProdType type;
     private double price;
 
-
+    // mapping to pet store
     @ManyToMany(mappedBy = "products")
     private List<PetStore> petStores;
 }

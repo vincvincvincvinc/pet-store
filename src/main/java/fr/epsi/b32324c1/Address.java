@@ -12,7 +12,7 @@ public class Address {
     private String zipCode;
     private String city;
 
-
+    // mapping to pet store
     @OneToOne(mappedBy = "address")
     private PetStore petStore;
 }

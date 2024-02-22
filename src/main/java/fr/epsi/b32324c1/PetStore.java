@@ -11,7 +11,7 @@ public class PetStore {
     private String name;
     private String managerName;
 
-
+    // mappings avec tous les autres entités
     @ManyToMany
     @JoinTable(
             name = "petstore_product",

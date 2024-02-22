@@ -12,7 +12,7 @@ public class Animal {
     private Date birth;
     private String couleur;
 
-
+    // mapping to pet store
     @ManyToOne
     @JoinColumn(name = "petstore_id")
     private PetStore petStore;
