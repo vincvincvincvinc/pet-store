@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c7f8d3d-1d24-43c0-a958-68f2769f21bd" name="Changes" comment="Add correct mappings">
+    <list default="true" id="4c7f8d3d-1d24-43c0-a958-68f2769f21bd" name="Changes" comment="Add entity manager + fix persistence.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/epsi/b32324c1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708611755230</updated>
-      <workItem from="1708611756256" duration="6849000" />
+      <workItem from="1708611756256" duration="7053000" />
+      <workItem from="1708618848864" duration="680000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -99,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708617576406</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add entity manager + fix persistence.xml">
+      <option name="closed" value="true" />
+      <created>1708618667134</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1708618667134</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +129,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Fix dependencies, fix maven, add enums" />
     <MESSAGE value="Add correct mappings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add correct mappings" />
+    <MESSAGE value="Add entity manager + fix persistence.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add entity manager + fix persistence.xml" />
   </component>
 </project>
